@@ -5,10 +5,12 @@ import cors from "cors"
 import { UserRouter } from "./routes/userRoutes.js";
 import { logger } from "./middleware/logger.js";
 import { errorHandler } from "./middleware/errorHandling.js";
+import compression from "compression";
 
 dotenv.config();
 const app = express();
 
+app.use(compression())
 
 //my middlewares hehehe
 
