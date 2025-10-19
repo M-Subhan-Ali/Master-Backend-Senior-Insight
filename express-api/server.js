@@ -6,6 +6,7 @@ import { UserRouter } from "./routes/userRoutes.js";
 import { logger } from "./middleware/logger.js";
 import { errorHandler } from "./middleware/errorHandling.js";
 import compression from "compression";
+import { SQLUserRouter } from "./routes/squUserRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ app.get("/",(req,res)=>{
 
 app.use(logger)
 
+app.use("/users",SQLUserRouter)
 app.use("/api/users",UserRouter)
 
 app.use(errorHandler)
